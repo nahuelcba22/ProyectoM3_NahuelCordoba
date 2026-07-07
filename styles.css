@@ -1,0 +1,459 @@
+@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
+/* =======================================
+                VARIABLES
+======================================= */
+
+:root{
+
+    --gold:#c7a437;
+    --gold-hover:#ddb84b;
+
+    --card:#1b2432;
+
+    --text:#f3f5f7;
+    --text-secondary:#b8c3d3;
+
+}
+
+/* =======================================
+                RESET
+======================================= */
+
+*{
+
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+
+}
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+body{
+
+    background:rgb(1,1,1);
+
+    color:var(--text);
+
+    font-family:'Inter',sans-serif;
+
+    min-height:100vh;
+
+    overflow-x:hidden;
+
+    position:relative;
+
+}
+
+/* =======================================
+            DECORACIÓN FONDO
+======================================= */
+
+.branch{
+
+    position:fixed;
+
+    inset:0;
+
+    width:100vw;
+
+    height:100vh;
+
+    object-fit:cover;
+
+    object-position:left top;
+
+    pointer-events:none;
+
+    z-index:0;
+
+    opacity:.92;
+
+}
+
+/* =======================================
+                HEADER
+======================================= */
+
+header{
+
+    position:relative;
+
+    z-index:20;
+
+    height:110px;
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    padding:0 90px;
+
+    border-bottom:1px solid rgba(255,255,255,.08);
+
+    backdrop-filter:blur(8px);
+
+}
+
+.logo h1{
+
+    font-family:'Cinzel',serif;
+
+    font-size:2.3rem;
+
+    color:var(--gold);
+
+    letter-spacing:2px;
+
+}
+
+.logo p{
+
+    margin-top:4px;
+
+    font-size:.9rem;
+
+    color:var(--text-secondary);
+
+}
+
+nav{
+
+    display:flex;
+
+    gap:35px;
+
+}
+
+nav a{
+
+    text-decoration:none;
+
+    color:white;
+
+    font-weight:600;
+
+    transition:.25s;
+
+}
+
+nav a:hover{
+
+    color:var(--gold);
+
+}
+
+/* =======================================
+                MAIN
+======================================= */
+
+main{
+
+    position:relative;
+
+    z-index:5;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    min-height:calc(100vh - 110px);
+
+    padding:160px 25px 70px;
+
+}
+
+/* =======================================
+            TARJETA PRINCIPAL
+======================================= */
+
+.home-card{
+
+    position:relative;
+
+    width:min(820px,95%);
+
+    padding:70px 60px 60px;
+
+    text-align:center;
+
+    border-radius:24px;
+
+    background:rgba(27,36,50,.96);
+
+    border:1px solid rgba(255,255,255,.08);
+
+    box-shadow:0 30px 80px rgba(0,0,0,.65);
+
+    backdrop-filter:blur(10px);
+
+    z-index:10;
+
+}
+
+/* =======================================
+                MIMIR
+======================================= */
+
+.mimir{
+
+    position:absolute;
+
+    width:420px;
+
+    left:50%;
+
+    top:-145px;
+
+    transform:translateX(-50%);
+
+    pointer-events:none;
+
+    z-index:15;
+
+}
+
+/* =======================================
+                CUERVO
+======================================= */
+
+.raven{
+
+    position:absolute;
+
+    width:150px;
+
+    top:-76px;
+
+    right:-30px;
+
+    pointer-events:none;
+
+    z-index:20;
+
+}/* =======================================
+                TEXTO
+======================================= */
+
+.home-card h2{
+
+    font-family:'Cinzel',serif;
+
+    color:var(--gold);
+
+    font-size:3.3rem;
+
+    margin-bottom:30px;
+
+}
+
+.welcome{
+
+    font-size:1.35rem;
+
+    margin-bottom:22px;
+
+    color:white;
+
+}
+
+.home-card p{
+
+    color:var(--text-secondary);
+
+    line-height:1.9;
+
+    font-size:1.02rem;
+
+    margin-bottom:18px;
+
+}
+
+.home-card strong{
+
+    color:var(--gold);
+
+}
+
+/* =======================================
+                BOTÓN
+======================================= */
+
+button{
+
+    margin-top:20px;
+
+    padding:16px 42px;
+
+    border:none;
+
+    border-radius:12px;
+
+    background:var(--gold);
+
+    color:#111;
+
+    font-size:1rem;
+
+    font-weight:700;
+
+    cursor:pointer;
+
+    transition:.25s;
+
+}
+
+button:hover{
+
+    background:var(--gold-hover);
+
+    transform:translateY(-3px);
+
+}
+
+/* =======================================
+                TABLET
+======================================= */
+
+@media (max-width:900px){
+
+    header{
+
+        padding:0 40px;
+
+    }
+
+    .branch{
+
+        object-position:left top;
+
+    }
+
+    .home-card{
+
+        width:92%;
+
+        padding:170px 40px 45px;
+
+    }
+
+    .mimir{
+
+        width:320px;
+
+        top:-110px;
+
+    }
+
+    .raven{
+
+        width:85px;
+
+        top:18px;
+
+        right:20px;
+
+    }
+
+    .home-card h2{
+
+        font-size:2.6rem;
+
+    }
+
+}
+
+/* =======================================
+                MOBILE
+======================================= */
+
+@media (max-width:650px){
+
+    header{
+
+        height:auto;
+
+        padding:20px;
+
+        flex-direction:column;
+
+        gap:18px;
+
+    }
+
+    nav{
+
+        gap:18px;
+
+        flex-wrap:wrap;
+
+        justify-content:center;
+
+    }
+
+    main{
+
+        padding:120px 15px 40px;
+
+    }
+
+    .home-card{
+
+        width:100%;
+
+        padding:120px 25px 35px;
+
+    }
+
+    .mimir{
+
+        width:210px;
+
+        top:-70px;
+
+    }
+
+    .raven{
+
+        width:60px;
+
+        top:12px;
+
+        right:12px;
+
+    }
+
+    .home-card h2{
+
+        font-size:2rem;
+
+    }
+
+    .welcome{
+
+        font-size:1.1rem;
+
+    }
+
+    .home-card p{
+
+        font-size:.95rem;
+
+    }
+
+    button{
+
+        width:100%;
+
+    }
+
+}
