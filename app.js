@@ -1,48 +1,61 @@
-import { renderChat } from "./chat.js";
-
+import { renderHome } from "./views/home.js";
 
 const app = document.querySelector("#app");
 
 
-function router(){
+function router() {
 
     const path = window.location.pathname;
 
 
-    if(path === "/chat"){
+    switch (path) {
 
-        renderChat();
+        case "/chat":
+            app.innerHTML = "<h1>Chat en construcción...</h1>";
+            break;
 
-    }else if(path === "/about"){
 
-        renderAbout();
+        case "/about":
+            app.innerHTML = "<h1>Acerca de...</h1>";
+            break;
 
-    }else{
 
-        renderHome();
+        case "/":
+        case "/home":
+        default:
+            app.innerHTML = renderHome();
+            break;
 
     }
 
 }
 
 
-function navigate(path){
+// Atrás y adelante del navegador
+window.addEventListener("popstate", router);
+
+
+// Navegación SPA
+document.addEventListener("click", (e) => {
+
+    const link = e.target.closest("[data-link]");
+
+    if (!link) return;
+
+
+    e.preventDefault();
+
 
     history.pushState(
         {},
         "",
-        path
+        link.href
     );
+
 
     router();
 
-}
-
-
-window.addEventListener(
-    "popstate",
-    router
-);
+});
 
 
 router();
