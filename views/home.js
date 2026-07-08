@@ -32,9 +32,13 @@ export function renderHome() {
                 Formula tu pregunta y compartiré contigo la sabiduría de los Nueve Reinos.
             </p>
 
-            <button>
+            <a 
+                href="/chat"
+                data-link
+                class="consult-button"
+            >
                 Consultar a Mimir
-            </button>
+             </a>
 
         </section>
 

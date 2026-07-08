@@ -288,7 +288,8 @@ main{
                 BOTÓN
 ======================================= */
 
-button{
+button,
+.consult-button{
 
     margin-top:20px;
 
@@ -310,9 +311,15 @@ button{
 
     transition:.25s;
 
+    text-decoration:none;
+
+    display:inline-block;
+
 }
 
-button:hover{
+
+button:hover,
+.consult-button:hover{
 
     background:var(--gold-hover);
 
@@ -450,12 +457,12 @@ button:hover{
 
     }
 
-    button{
+    button,
+    .consult-button{
 
-        width:100%;
+    width:100%;
 
     }
-
 }/* =======================================
                 CHAT
 ======================================= */

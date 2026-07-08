@@ -45,6 +45,11 @@ export function renderChat(){
                 Enviar
             </button>
 
+
+            <button id="clear-chat">
+                Borrar historial
+            </button>
+
         </div>
 
 
@@ -57,36 +62,97 @@ export function renderChat(){
 
 
 
+
 export function initChat(){
 
 
-    const input = document.querySelector("#chat-input");
-
-    const button = document.querySelector("#send-button");
-
-    const messagesContainer = document.querySelector("#messages");
+    const input =
+    document.querySelector("#chat-input");
 
 
-    // Mantener scroll abajo al entrar al chat
+    const button =
+    document.querySelector("#send-button");
+
+
+    const clearButton =
+    document.querySelector("#clear-chat");
+
+
+    const messagesContainer =
+    document.querySelector("#messages");
+
+
 
     messagesContainer.scrollTop =
     messagesContainer.scrollHeight;
 
 
 
-    button.addEventListener("click", sendMessage);
+    button.addEventListener(
+        "click",
+        sendMessage
+    );
 
 
 
-    input.addEventListener("keydown",(event)=>{
+    input.addEventListener(
+        "keydown",
+        (event)=>{
 
-        if(event.key === "Enter"){
+            if(event.key === "Enter"){
 
-            sendMessage();
+                sendMessage();
+
+            }
 
         }
+    );
 
-    });
+
+
+    clearButton.addEventListener(
+        "click",
+        clearHistory
+    );
+
+
+
+
+
+    function clearHistory(){
+
+
+        localStorage.removeItem(
+            "mimir-chat"
+        );
+
+
+        messages.length = 0;
+
+
+        messages.push({
+
+            role:"mimir",
+
+            content:
+            "Las aguas del pozo están nuevamente tranquilas, viajero."
+
+        });
+
+
+
+        messagesContainer.innerHTML = `
+
+            <div class="message mimir">
+                ${messages[0].content}
+            </div>
+
+        `;
+
+
+    }
+
+
 
 
 
@@ -95,7 +161,9 @@ export function initChat(){
     async function sendMessage(){
 
 
-        const text = input.value.trim();
+        const text =
+        input.value.trim();
+
 
 
         if(!text) return;
@@ -139,15 +207,20 @@ export function initChat(){
 
 
 
-        // Mensaje de carga
 
-        const loadingMessage = document.createElement("div");
+        const loadingMessage =
+        document.createElement("div");
+
+
 
         loadingMessage.className =
         "message mimir loading";
 
+
+
         loadingMessage.textContent =
         "Mímir está pensando...";
+
 
 
         messagesContainer.appendChild(
@@ -162,62 +235,66 @@ export function initChat(){
 
 
 
-        // Simulación temporal de IA
 
-        setTimeout(async ()=>{
-
-
-            loadingMessage.remove();
-
-
-let reply;
-
-try{
-
-    reply = await askMimir(text);
-
-}
-catch(error){
-
-    reply =
-    "Los antiguos secretos del pozo están fuera de mi alcance en este momento.";
-
-}
-
-
-            messages.push({
-
-                role:"mimir",
-
-                content:reply
-
-            });
+        let reply;
 
 
 
-            localStorage.setItem(
-                "mimir-chat",
-                JSON.stringify(messages)
-            );
+        try{
+
+
+            reply =
+            await askMimir();
+
+
+        }
+        catch(error){
+
+
+            reply =
+            "Los antiguos secretos del pozo están fuera de mi alcance en este momento.";
+
+
+        }
 
 
 
-            messagesContainer.innerHTML += `
 
-                <div class="message mimir">
-                    ${reply}
-                </div>
-
-            `;
+        loadingMessage.remove();
 
 
 
-            messagesContainer.scrollTop =
-            messagesContainer.scrollHeight;
+
+
+        messages.push({
+
+            role:"mimir",
+
+            content:reply
+
+        });
 
 
 
-        },800);
+        localStorage.setItem(
+            "mimir-chat",
+            JSON.stringify(messages)
+        );
+
+
+
+        messagesContainer.innerHTML += `
+
+            <div class="message mimir">
+                ${reply}
+            </div>
+
+        `;
+
+
+
+        messagesContainer.scrollTop =
+        messagesContainer.scrollHeight;
 
 
 
@@ -230,27 +307,57 @@ catch(error){
 
 
 
-async function askMimir(question){
 
 
-    const response = await fetch("/api/functions", {
+
+
+async function askMimir(){
+
+
+    const response =
+    await fetch("/api/functions", {
+
 
         method:"POST",
 
+
         headers:{
-            "Content-Type":"application/json"
+
+            "Content-Type":
+            "application/json"
+
         },
 
-        body: JSON.stringify({
-    messages: messages.map(message => ({
-        role: message.role === "user" ? "user" : "model",
-        parts:[
-            {
-                text: message.content
-            }
-        ]
-    }))
-})
+
+        body:JSON.stringify({
+
+            messages:
+            messages.map(message=>({
+
+
+                role:
+                message.role === "user"
+                ? "user"
+                : "model",
+
+
+                parts:[
+
+                    {
+
+                        text:
+                        message.content
+
+                    }
+
+                ]
+
+
+            }))
+
+
+        })
+
 
     });
 
@@ -258,16 +365,23 @@ async function askMimir(question){
 
     if(!response.ok){
 
-        throw new Error("Error comunicándose con Mímir");
+
+        throw new Error(
+            "Error comunicándose con Mímir"
+        );
+
 
     }
 
 
 
-    const data = await response.json();
+    const data =
+    await response.json();
+
 
 
     return data.reply;
+
 
 
 }
