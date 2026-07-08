@@ -1,1 +1,4 @@
-git rm --cached .env
+.vercel/
+node_modules/
+.env
+.env*
