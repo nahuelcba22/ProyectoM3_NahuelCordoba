@@ -1,6 +1,10 @@
 import { renderHome } from "./views/home.js";
+import { renderChat, initChat } from "./views/chat.js";
+import { renderAbout } from "./views/about.js";
+
 
 const app = document.querySelector("#app");
+
 
 
 function router() {
@@ -10,20 +14,31 @@ function router() {
 
     switch (path) {
 
+
         case "/chat":
-            app.innerHTML = "<h1>Chat en construcción...</h1>";
+
+            app.innerHTML = renderChat();
+
+            initChat();
+
             break;
+
 
 
         case "/about":
-            app.innerHTML = "<h1>Acerca de...</h1>";
+
+            app.innerHTML = renderAbout();
+
             break;
+
 
 
         case "/":
         case "/home":
         default:
+
             app.innerHTML = renderHome();
+
             break;
 
     }
@@ -31,31 +46,48 @@ function router() {
 }
 
 
-// Atrás y adelante del navegador
-window.addEventListener("popstate", router);
+
+// Permite usar botones atrás/adelante del navegador
+
+window.addEventListener(
+    "popstate",
+    router
+);
 
 
-// Navegación SPA
-document.addEventListener("click", (e) => {
 
-    const link = e.target.closest("[data-link]");
+// Navegación SPA sin recargar página
 
-    if (!link) return;
-
-
-    e.preventDefault();
+document.addEventListener(
+    "click",
+    (event) => {
 
 
-    history.pushState(
-        {},
-        "",
-        link.href
-    );
+        const link = event.target.closest("[data-link]");
 
 
-    router();
+        if(!link) return;
 
-});
 
+        event.preventDefault();
+
+
+
+       history.pushState(
+                          {},
+            "",
+            link.pathname
+                        );
+
+
+        router();
+
+
+    }
+);
+
+
+
+// Carga inicial
 
 router();

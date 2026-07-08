@@ -1,15 +1,7 @@
 {
   "rewrites": [
     {
-      "source": "/home",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/chat",
-      "destination": "/index.html"
-    },
-    {
-      "source": "/about",
+      "source": "/(.*)",
       "destination": "/index.html"
     }
   ]
