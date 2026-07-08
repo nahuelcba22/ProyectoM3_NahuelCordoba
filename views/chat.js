@@ -1,10 +1,15 @@
-let messages = [
+let messages = JSON.parse(
+    localStorage.getItem("mimir-chat")
+) || [
+
     {
         role: "mimir",
         content:
             "Bienvenido viajero. Soy Mímir, guardián del Pozo de la Sabiduría."
     }
+
 ];
+
 
 
 export function renderChat(){
@@ -51,6 +56,7 @@ export function renderChat(){
 
 
 
+
 export function initChat(){
 
 
@@ -61,11 +67,18 @@ export function initChat(){
     const messagesContainer = document.querySelector("#messages");
 
 
+    // Mantener scroll abajo al entrar al chat
+
+    messagesContainer.scrollTop =
+    messagesContainer.scrollHeight;
+
+
 
     button.addEventListener("click", sendMessage);
 
 
-    input.addEventListener("keydown", (event)=>{
+
+    input.addEventListener("keydown",(event)=>{
 
         if(event.key === "Enter"){
 
@@ -77,7 +90,9 @@ export function initChat(){
 
 
 
-    function sendMessage(){
+
+
+    async function sendMessage(){
 
 
         const text = input.value.trim();
@@ -97,6 +112,13 @@ export function initChat(){
 
 
 
+        localStorage.setItem(
+            "mimir-chat",
+            JSON.stringify(messages)
+        );
+
+
+
         messagesContainer.innerHTML += `
 
             <div class="message user">
@@ -111,11 +133,56 @@ export function initChat(){
 
 
 
-        setTimeout(()=>{
+        messagesContainer.scrollTop =
+        messagesContainer.scrollHeight;
 
 
-            const reply =
-            "Interesante pregunta, viajero. El conocimiento del pozo aún guarda muchos misterios.";
+
+
+        // Mensaje de carga
+
+        const loadingMessage = document.createElement("div");
+
+        loadingMessage.className =
+        "message mimir loading";
+
+        loadingMessage.textContent =
+        "Mímir está pensando...";
+
+
+        messagesContainer.appendChild(
+            loadingMessage
+        );
+
+
+
+        messagesContainer.scrollTop =
+        messagesContainer.scrollHeight;
+
+
+
+
+        // Simulación temporal de IA
+
+        setTimeout(async ()=>{
+
+
+            loadingMessage.remove();
+
+
+let reply;
+
+try{
+
+    reply = await askMimir(text);
+
+}
+catch(error){
+
+    reply =
+    "Los antiguos secretos del pozo están fuera de mi alcance en este momento.";
+
+}
 
 
             messages.push({
@@ -128,6 +195,13 @@ export function initChat(){
 
 
 
+            localStorage.setItem(
+                "mimir-chat",
+                JSON.stringify(messages)
+            );
+
+
+
             messagesContainer.innerHTML += `
 
                 <div class="message mimir">
@@ -135,6 +209,7 @@ export function initChat(){
                 </div>
 
             `;
+
 
 
             messagesContainer.scrollTop =
@@ -145,7 +220,54 @@ export function initChat(){
         },800);
 
 
+
     }
+
+
+
+}
+
+
+
+
+async function askMimir(question){
+
+
+    const response = await fetch("/api/functions", {
+
+        method:"POST",
+
+        headers:{
+            "Content-Type":"application/json"
+        },
+
+        body: JSON.stringify({
+    messages: messages.map(message => ({
+        role: message.role === "user" ? "user" : "model",
+        parts:[
+            {
+                text: message.content
+            }
+        ]
+    }))
+})
+
+    });
+
+
+
+    if(!response.ok){
+
+        throw new Error("Error comunicándose con Mímir");
+
+    }
+
+
+
+    const data = await response.json();
+
+
+    return data.reply;
 
 
 }

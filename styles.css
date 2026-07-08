@@ -204,7 +204,7 @@ main{
                 MIMIR
 ======================================= */
 
-.mimir{
+.mimir-image{
 
     position:absolute;
 
@@ -346,7 +346,7 @@ button:hover{
 
     }
 
-    .mimir{
+    .mimir-image{
 
         width:320px;
 
@@ -414,7 +414,7 @@ button:hover{
 
     }
 
-    .mimir{
+    .mimir-image{
 
         width:210px;
 
@@ -519,6 +519,8 @@ button:hover{
 
 /* MIMIR */
 
+/* MIMIR CHAT */
+
 .message.mimir{
 
     align-self:flex-start;
@@ -527,8 +529,13 @@ button:hover{
 
     color:var(--text);
 
-}
+}.message.loading{
 
+    opacity:.7;
+
+    font-style:italic;
+
+}
 
 /* USUARIO */
 
@@ -579,13 +586,6 @@ button:hover{
 
     margin-top:0;
 
-}.message.mimir{
-    align-self:flex-start;
-    background:red;
-    color:white;
-    padding:20px;
-    border-radius:18px;
-    display:block;
 }.chat-container{
 
     margin:auto;

@@ -3,13 +3,17 @@
   "version": "1.0.0",
   "description": "Proyecto Integrador M3 - Mimir",
   "type": "module",
-  "scripts": {
-    "test": "echo \"No tests yet\""
-  },
+ "scripts": {
+  "test": "vitest"
+},
   "keywords": [],
   "author": "Nahuel Cordoba",
   "license": "ISC",
   "devDependencies": {
-    "vercel": "^54.21.1"
+    "vercel": "^54.21.1",
+    "vitest": "^4.1.10"
+  },
+  "dependencies": {
+    "@google/generative-ai": "^0.24.1"
   }
 }

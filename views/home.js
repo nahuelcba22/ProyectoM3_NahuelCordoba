@@ -7,7 +7,7 @@ export function renderHome() {
             <img
                 src="assets/images/mimir.png"
                 alt="Mimir"
-                class="mimir">
+                class="mimir-image">
 
             <img
                 src="assets/images/raven.png"
