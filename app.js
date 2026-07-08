@@ -6,14 +6,12 @@ import { renderAbout } from "./views/about.js";
 const app = document.querySelector("#app");
 
 
-
 function router() {
 
     const path = window.location.pathname;
 
 
     switch (path) {
-
 
         case "/chat":
 
@@ -24,13 +22,11 @@ function router() {
             break;
 
 
-
         case "/about":
 
             app.innerHTML = renderAbout();
 
             break;
-
 
 
         case "/":
@@ -46,7 +42,6 @@ function router() {
 }
 
 
-
 // Permite usar botones atrás/adelante del navegador
 
 window.addEventListener(
@@ -55,37 +50,28 @@ window.addEventListener(
 );
 
 
-
 // Navegación SPA sin recargar página
 
 document.addEventListener(
     "click",
     (event) => {
 
-
         const link = event.target.closest("[data-link]");
 
-
-        if(!link) return;
-
+        if (!link) return;
 
         event.preventDefault();
 
-
-
-       history.pushState(
-                          {},
+        history.pushState(
+            {},
             "",
             link.pathname
-                        );
-
+        );
 
         router();
 
-
     }
 );
-
 
 
 // Carga inicial
