@@ -149,37 +149,37 @@ GEMINI_API_KEY
 
 #### Home
 
-![Home Mobile](screenshots/home-mobile.png)
+![Home Mobile](assets/screenshots/home-mobile.png)
 
 ---
 
 #### Chat
 
-![Chat Mobile](screenshots/chat-mobile.png)
+![Chat Mobile](assets/screenshots/chat-mobile.png)
 
 ---
 
 #### About
 
-![About Mobile](screenshots/about-mobile.png)
+![About Mobile](asssets/screenshots/about-mobile.png)
 
 ###  Versión Desktop
 
 #### Home
 
-![Home Desktop](screenshots/home-desktop.png)
+![Home Desktop](assets/screenshots/home-desktop.png)
 
 ---
 
 #### Chat
 
-![Chat Desktop](screenshots/chat-desktop.png)
+![Chat Desktop](assets/screenshots/chat-desktop.png)
 
 ---
 
 #### About
 
-![About Desktop](screenshots/about-desktop.png)
+![About Desktop](assets/screenshots/about-desktop.png)
 
 ---
 
