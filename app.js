@@ -11,9 +11,15 @@ function router() {
     const path = window.location.pathname;
 
 
+    app.className = "";
+
+
     switch (path) {
 
+
         case "/chat":
+
+            app.classList.add("chat-page");
 
             app.innerHTML = renderChat();
 
@@ -22,16 +28,22 @@ function router() {
             break;
 
 
+
         case "/about":
+
+            app.classList.add("about-page");
 
             app.innerHTML = renderAbout();
 
             break;
 
 
+
         case "/":
         case "/home":
         default:
+
+            app.classList.add("home-page");
 
             app.innerHTML = renderHome();
 
@@ -56,11 +68,16 @@ document.addEventListener(
     "click",
     (event) => {
 
-        const link = event.target.closest("[data-link]");
+
+        const link =
+        event.target.closest("[data-link]");
+
 
         if (!link) return;
 
+
         event.preventDefault();
+
 
         history.pushState(
             {},
@@ -68,7 +85,9 @@ document.addEventListener(
             link.pathname
         );
 
+
         router();
+
 
     }
 );

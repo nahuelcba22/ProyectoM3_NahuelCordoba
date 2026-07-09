@@ -1,8 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&display=swap');
 
-/* =======================================
-                VARIABLES
-======================================= */
+
+/* ===========================
+        VARIABLES
+=========================== */
 
 :root{
 
@@ -16,9 +17,10 @@
 
 }
 
-/* =======================================
-                RESET
-======================================= */
+
+/* ===========================
+        RESET
+=========================== */
 
 *{
 
@@ -28,31 +30,26 @@
 
 }
 
-html{
-
-    scroll-behavior:smooth;
-
-}
 
 body{
 
-    background:rgb(1,1,1);
+    min-height:100vh;
+
+    background:#010101;
 
     color:var(--text);
 
     font-family:'Inter',sans-serif;
 
-    min-height:100vh;
-
     overflow-x:hidden;
-
-    position:relative;
 
 }
 
-/* =======================================
-            DECORACIÓN FONDO
-======================================= */
+
+
+/* ===========================
+        BACKGROUND
+=========================== */
 
 .branch{
 
@@ -60,25 +57,27 @@ body{
 
     inset:0;
 
-    width:100vw;
-
-    height:100vh;
+    width:100%;
+    height:100%;
 
     object-fit:cover;
 
     object-position:left top;
 
-    pointer-events:none;
-
     z-index:0;
+
+    pointer-events:none;
 
     opacity:.92;
 
 }
 
-/* =======================================
-                HEADER
-======================================= */
+
+
+/* ===========================
+        HEADER MOBILE
+=========================== */
+
 
 header{
 
@@ -86,63 +85,73 @@ header{
 
     z-index:20;
 
-    height:110px;
-
     display:flex;
 
-    justify-content:space-between;
+    flex-direction:column;
 
     align-items:center;
 
-    padding:0 90px;
+    gap:15px;
 
-    border-bottom:1px solid rgba(255,255,255,.08);
+    padding:20px;
+
+    border-bottom:
+    1px solid rgba(255,255,255,.08);
 
     backdrop-filter:blur(8px);
 
 }
 
+
 .logo h1{
 
     font-family:'Cinzel',serif;
 
-    font-size:2.3rem;
-
     color:var(--gold);
+
+    font-size:1.8rem;
 
     letter-spacing:2px;
 
 }
 
+
 .logo p{
-
-    margin-top:4px;
-
-    font-size:.9rem;
 
     color:var(--text-secondary);
 
+    font-size:.8rem;
+
+    text-align:center;
+
 }
+
+
 
 nav{
 
     display:flex;
 
-    gap:35px;
+    gap:18px;
+
+    justify-content:center;
+
+    flex-wrap:wrap;
 
 }
+
+
 
 nav a{
 
-    text-decoration:none;
-
     color:white;
+
+    text-decoration:none;
 
     font-weight:600;
 
-    transition:.25s;
-
 }
+
 
 nav a:hover{
 
@@ -150,9 +159,12 @@ nav a:hover{
 
 }
 
-/* =======================================
-                MAIN
-======================================= */
+
+
+/* ===========================
+        MAIN MOBILE
+=========================== */
+
 
 main{
 
@@ -166,117 +178,134 @@ main{
 
     align-items:center;
 
-    min-height:calc(100vh - 110px);
-
-    padding:160px 25px 70px;
+    min-height:calc(100vh - 140px);
 
 }
 
-/* =======================================
-            TARJETA PRINCIPAL
-======================================= */
+
+
+/* ===========================
+        HOME
+=========================== */
+
+
+.home-page{
+
+    padding:120px 15px 40px;
+
+}
+
+
 
 .home-card{
 
+
     position:relative;
 
-    width:min(820px,95%);
+    width:100%;
 
-    padding:70px 60px 60px;
+    padding:120px 25px 35px;
 
     text-align:center;
 
-    border-radius:24px;
-
     background:rgba(27,36,50,.96);
 
-    border:1px solid rgba(255,255,255,.08);
+    border-radius:24px;
 
-    box-shadow:0 30px 80px rgba(0,0,0,.65);
+    border:
+    1px solid rgba(255,255,255,.08);
 
-    backdrop-filter:blur(10px);
-
-    z-index:10;
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.65);
 
 }
 
-/* =======================================
-                MIMIR
-======================================= */
+
+
+/* MIMIR */
 
 .mimir-image{
 
+
     position:absolute;
 
-    width:420px;
+    width:210px;
+
+    top:-75px;
 
     left:50%;
 
-    top:-145px;
-
     transform:translateX(-50%);
-
-    pointer-events:none;
 
     z-index:15;
 
+    pointer-events:none;
+
 }
 
-/* =======================================
-                CUERVO
-======================================= */
+
+
+/* CUERVO */
+
 
 .raven{
 
+
     position:absolute;
 
-    width:150px;
+    width:65px;
 
-    top:-76px;
+    top:-35px;
 
-    right:-30px;
-
-    pointer-events:none;
+    right:-15px;
 
     z-index:20;
 
-}/* =======================================
-                TEXTO
-======================================= */
+    pointer-events:none;
+
+}
+
+
+
+
 
 .home-card h2{
+
 
     font-family:'Cinzel',serif;
 
     color:var(--gold);
 
-    font-size:3.3rem;
+    font-size:2rem;
 
-    margin-bottom:30px;
-
-}
-
-.welcome{
-
-    font-size:1.35rem;
-
-    margin-bottom:22px;
-
-    color:white;
+    margin-bottom:25px;
 
 }
+
+
 
 .home-card p{
 
     color:var(--text-secondary);
 
-    line-height:1.9;
+    line-height:1.8;
 
-    font-size:1.02rem;
+    font-size:.95rem;
 
     margin-bottom:18px;
 
 }
+
+
+.welcome{
+
+    color:white !important;
+
+    font-size:1.1rem !important;
+
+}
+
+
 
 .home-card strong{
 
@@ -284,38 +313,45 @@ main{
 
 }
 
-/* =======================================
-                BOTÓN
-======================================= */
+
+
+
+/* BOTON HOME */
+
 
 button,
 .consult-button{
 
-    margin-top:20px;
-
-    padding:16px 42px;
 
     border:none;
-
-    border-radius:12px;
 
     background:var(--gold);
 
     color:#111;
 
-    font-size:1rem;
+    cursor:pointer;
 
     font-weight:700;
 
-    cursor:pointer;
+    border-radius:12px;
 
     transition:.25s;
 
-    text-decoration:none;
+}
+
+
+.consult-button{
 
     display:inline-block;
 
+    padding:15px 35px;
+
+    text-decoration:none;
+
+    margin-top:20px;
+
 }
+
 
 
 button:hover,
@@ -323,155 +359,34 @@ button:hover,
 
     background:var(--gold-hover);
 
-    transform:translateY(-3px);
-
 }
 
-/* =======================================
-                TABLET
-======================================= */
 
-@media (max-width:900px){
 
-    header{
+/* ===========================
+        CHAT MOBILE
+=========================== */
 
-        padding:0 40px;
 
-    }
+.chat-page{
 
-    .branch{
-
-        object-position:left top;
-
-    }
-
-    .home-card{
-
-        width:92%;
-
-        padding:170px 40px 45px;
-
-    }
-
-    .mimir-image{
-
-        width:320px;
-
-        top:-110px;
-
-    }
-
-    .raven{
-
-        width:85px;
-
-        top:18px;
-
-        right:20px;
-
-    }
-
-    .home-card h2{
-
-        font-size:2.6rem;
-
-    }
-
-}
-
-/* =======================================
-                MOBILE
-======================================= */
-
-@media (max-width:650px){
-
-    header{
-
-        height:auto;
-
-        padding:20px;
-
-        flex-direction:column;
-
-        gap:18px;
-
-    }
-
-    nav{
-
-        gap:18px;
-
-        flex-wrap:wrap;
-
-        justify-content:center;
-
-    }
-
-    main{
-
-        padding:120px 15px 40px;
-
-    }
-
-    .home-card{
-
-        width:100%;
-
-        padding:120px 25px 35px;
-
-    }
-
-    .mimir-image{
-
-        width:210px;
-
-        top:-70px;
-
-    }
-
-    .raven{
-
-        width:60px;
-
-        top:12px;
-
-        right:12px;
-
-    }
-
-    .home-card h2{
-
-        font-size:2rem;
-
-    }
-
-    .welcome{
-
-        font-size:1.1rem;
-
-    }
-
-    .home-card p{
-
-        font-size:.95rem;
-
-    }
-
-    button,
-    .consult-button{
 
     width:100%;
 
-    }
-}/* =======================================
-                CHAT
-======================================= */
+    padding:25px 15px 40px;
+
+}
+
+
 
 .chat-container{
 
-    width:min(820px,95%);
 
-    height:650px;
+    width:100%;
+
+    height:calc(100vh - 230px);
+
+    min-height:450px;
 
     display:flex;
 
@@ -479,20 +394,19 @@ button:hover,
 
     background:rgba(27,36,50,.96);
 
-    border:1px solid rgba(255,255,255,.08);
-
     border-radius:24px;
 
-    padding:30px;
+    padding:15px;
 
-    box-shadow:0 30px 80px rgba(0,0,0,.65);
+    box-shadow:
+    0 30px 80px rgba(0,0,0,.65);
 
 }
 
 
-/* AREA DE MENSAJES */
 
 .messages{
+
 
     flex:1;
 
@@ -502,51 +416,46 @@ button:hover,
 
     flex-direction:column;
 
-    gap:18px;
+    gap:15px;
 
-    padding:15px;
+    padding:10px;
 
 }
 
 
-/* BURBUJAS */
+
 
 .message{
 
-    max-width:70%;
 
-    padding:15px 20px;
+    max-width:85%;
+
+    padding:12px 15px;
 
     border-radius:18px;
 
     line-height:1.5;
 
+    animation:appear .25s ease;
+
 }
 
 
-/* MIMIR */
 
-/* MIMIR CHAT */
 
 .message.mimir{
+
 
     align-self:flex-start;
 
     background:#283548;
 
-    color:var(--text);
-
-}.message.loading{
-
-    opacity:.7;
-
-    font-style:italic;
-
 }
 
-/* USUARIO */
+
 
 .message.user{
+
 
     align-self:flex-end;
 
@@ -557,24 +466,40 @@ button:hover,
 }
 
 
-/* INPUT */
 
-.chat-input{
 
-    display:flex;
+.loading{
 
-    gap:15px;
+    opacity:.7;
 
-    margin-top:20px;
+    font-style:italic;
 
 }
 
 
+
+
+.chat-input{
+
+
+    display:flex;
+
+    gap:8px;
+
+    margin-top:15px;
+
+}
+
+
+
 .chat-input input{
+
 
     flex:1;
 
-    padding:15px;
+    min-width:0;
+
+    padding:13px;
 
     border-radius:12px;
 
@@ -584,52 +509,195 @@ button:hover,
 
     color:white;
 
-    font-size:1rem;
-
 }
+
 
 
 .chat-input button{
 
-    margin-top:0;
 
-}.chat-container{
+    width:45px;
 
-    margin:auto;
+    height:45px;
+
+    font-size:1.2rem;
+
+}
+
+
+
+/* ===========================
+        TABLET
+=========================== */
+
+
+@media(min-width:650px){
+
+
+
+header{
+
+    flex-direction:row;
+
+    justify-content:space-between;
+
+    padding:0 40px;
+
+    height:100px;
 
 }
 
 
-.messages{
 
-    scrollbar-width:thin;
+.logo h1{
+
+    font-size:2.2rem;
 
 }
+
+
+
+.home-page{
+
+    padding:140px 30px 60px;
+
+}
+
+
+
+.home-card{
+
+    width:min(820px,90%);
+
+    padding:150px 50px 50px;
+
+}
+
+
+
+.mimir-image{
+
+    width:320px;
+
+    top:-110px;
+
+}
+
+
+
+.raven{
+
+    width:90px;
+
+    right:-20px;
+
+}
+
+
+
+.chat-page{
+
+    padding:40px;
+
+}
+
+
+
+.chat-container{
+
+    width:min(820px,95%);
+
+}
+
+
+
+}
+
+
+
+/* ===========================
+        DESKTOP
+=========================== */
+
+
+@media(min-width:900px){
+
+
+main{
+
+    min-height:calc(100vh - 110px);
+
+}
+
+
+
+.home-card h2{
+
+    font-size:3.3rem;
+
+}
+
+
+
+.mimir-image{
+
+    width:420px;
+
+    top:-145px;
+
+}
+
+
+
+.raven{
+
+    width:150px;
+
+    top:-70px;
+
+}
+
+
+
+.chat-container{
+
+    height:650px;
+
+}
+
 
 
 .message{
 
-    animation:appear .25s ease;
+    max-width:70%;
 
 }
 
 
+
+}
+    
+
+
 @keyframes appear{
 
-    from{
 
-        opacity:0;
+from{
 
-        transform:translateY(10px);
+    opacity:0;
 
-    }
+    transform:translateY(10px);
 
-    to{
+}
 
-        opacity:1;
 
-        transform:translateY(0);
+to{
 
-    }
+    opacity:1;
+
+    transform:translateY(0);
+
+}
+
 
 }

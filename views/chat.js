@@ -5,7 +5,7 @@ let messages = JSON.parse(
     {
         role: "mimir",
         content:
-            "Bienvenido viajero. Soy Mímir, guardián del Pozo de la Sabiduría."
+            "Bienvenido, viajero.<br><br>Soy Mímir, guardián del Pozo de la Sabiduría."
     }
 
 ];
@@ -16,7 +16,7 @@ export function renderChat(){
 
     return `
 
-    <section class="chat-container">
+    <section class="chat-container chat-view">
 
 
         <div class="messages" id="messages">
@@ -41,14 +41,22 @@ export function renderChat(){
                 placeholder="Escribe tu pregunta..."
             >
 
-            <button id="send-button">
-                Enviar
+
+            <button 
+                id="send-button"
+                aria-label="Enviar mensaje"
+            >
+                ➤
             </button>
 
 
-            <button id="clear-chat">
-                Borrar historial
+            <button 
+                id="clear-chat"
+                aria-label="Borrar historial"
+            >
+                🗑
             </button>
+
 
         </div>
 
@@ -260,6 +268,7 @@ export function initChat(){
 
 
 
+
         loadingMessage.remove();
 
 
@@ -303,6 +312,7 @@ export function initChat(){
 
 
 }
+
 
 
 
