@@ -56,6 +56,8 @@ views/
 ├── chat.js
 └── home.js
 
+.env.example
+.gitignore
 app.js
 index.html
 styles.css
@@ -72,13 +74,13 @@ README.md
 Clonar el repositorio:
 
 ```bash
-git clone TU_REPOSITORIO
+git clone https://github.com/nahuelcba22/ProyectoM3_NahuelCordoba
 ```
 
 Entrar al proyecto:
 
 ```bash
-cd TU_PROYECTO
+cd ProyectoM3_NahuelCordoba
 ```
 
 Instalar dependencias:
@@ -188,7 +190,7 @@ GEMINI_API_KEY
 
 **Vercel**
 
-proyecto-m3-nahuel-cordoba.vercel.app
+https://proyecto-m3-nahuel-cordoba.vercel.app
 
 ---
 
@@ -200,17 +202,26 @@ https://github.com/nahuelcba22/ProyectoM3_NahuelCordoba
 
 ##  Registro del uso de Inteligencia Artificial
 
-Durante el desarrollo del proyecto se utilizaron herramientas de inteligencia artificial como apoyo técnico para:
+Durante el desarrollo del proyecto se utilizó inteligencia artificial como herramienta de apoyo para la planificación, revisión y mejora del código. Todas las sugerencias fueron analizadas y adaptadas antes de incorporarlas al proyecto.
 
-* Mejorar la estructura general del proyecto
-* Diseñar y refinar el *system prompt* de Mímir
-* Revisar el diseño responsive
-* Resolver problemas relacionados con la integración de Gemini API
-* Verificar la implementación de Vercel Serverless Functions
-* Revisar el código y detectar posibles mejoras de organización y mantenimiento.
-* Guía de progresion para mejor estructura y evitar errores innecesarios
+### Prompt inicial
 
-Las sugerencias obtenidas fueron evaluadas antes de ser incorporadas al proyecto. La implementación final, las decisiones de diseño, la integración de funcionalidades y las pruebas fueron realizadas durante el desarrollo del proyecto.
+Se proporcionó contexto completo del proyecto y las tecnologías requeridas. A partir de ese contexto se solicitó asistencia para desarrollar una solución que cumpliera con todos los requisitos establecidos.
+
+### Prompts generales utilizados
+
+* Ayudar a planificar la estructura del proyecto respetando la consigna y las buenas prácticas recomendadas.
+* Revisar la implementación del routing SPA utilizando History API y verificar el correcto funcionamiento de la navegación y de los botones atrás/adelante del navegador.
+* Mejorar el diseño responsive siguiendo un enfoque Mobile-First y proponer ajustes para los distintos breakpoints (mobile, tablet y desktop).
+* Diseñar y refinar el *system prompt* del personaje Mímir para mantener una personalidad consistente, respuestas breves y un comportamiento acorde a la mitología nórdica.
+* Revisar la integración con Google Gemini mediante una Vercel Serverless Function, asegurando que la API Key permaneciera protegida y que el historial completo de la conversación se enviara en cada petición.
+* Resolver errores relacionados con el despliegue en Vercel, la configuración de variables de entorno y los límites de uso de la API de Gemini.
+* Revisar y optimizar la experiencia de usuario del chat, incluyendo el indicador de carga, el desplazamiento automático, el almacenamiento del historial y la adaptación de la interfaz para dispositivos móviles.
+* Verificar que el proyecto cumpliera con todos los criterios de la rúbrica antes de la entrega.
+* Elaborar y revisar la documentación del proyecto, incluyendo el README, las instrucciones de instalación, despliegue, ejecución de pruebas y la organización de las capturas de pantalla.
+
+Las respuestas generadas por la herramienta fueron utilizadas como apoyo durante el desarrollo. La implementación final, la integración de funcionalidades, las decisiones de diseño y la validación del funcionamiento fueron realizadas durante la construcción del proyecto.
+
 
 ---
 
