@@ -161,7 +161,7 @@ GEMINI_API_KEY
 
 #### About
 
-![About Mobile](asssets/screenshots/about-mobile.png)
+![About Mobile](assets/screenshots/about-mobile.png)
 
 ###  Versión Desktop
 
